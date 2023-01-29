@@ -26,3 +26,28 @@ void PrintArray(string[] array)
     }
     Console.Write(array[array.Length - 1]+ "]");
 }
+
+Console.WriteLine("Заполните массив через пробел случаными словами, числами или знаками:  ");
+
+string[] subs = Console.ReadLine().Split(' '); 
+
+int res = ProblemSolution(subs);
+// Console.WriteLine(res);
+
+string[] Array2 = new string[res];
+int k = 0;
+
+for (int i = 0; i < subs.Length; i++)
+{
+    
+    for (int j = k; j < Array2.Length; j++)
+    {
+       if (subs[i].Length <= 3)
+        {
+          Array2[j] = subs[i];
+          k = i+1;
+        }
+    }
+}
+
+PrintArray(Array2);
